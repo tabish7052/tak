@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<style>
+			#clock{
+				text-align:center;
+				font-size:100px;
+				font-family:'CollegiateFLF';
+			}
+		</style>
+		
+		<script>
+		
+			function getTime()
+			{
+				var today=new Date();
+				
+				var d=today.getDate();
+				var month=today.getMonth();
+				var y=today.getFullYear();
+				
+				var h=today.getHours();
+				var m=today.getMinutes();
+				var s=today.getSeconds();
+				
+				var day=today.getDay();
+				var days=["Sunday","Monday","Tuesday","Wednessday","Thursday","Friday","Saturday"];
+				
+				var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+				
+				var fulltime= days[day] + "<br/>" + getTwoDigits(d)+"-"+months[month]+"-"+y+"<br/>"+getTwoDigits(h)+":"+getTwoDigits(m)+":"+getTwoDigits(s);
+				document.getElementById("clock").innerHTML=fulltime;
+				
+				setTimeout(getTime, 1000);
+			}
+			
+			function getTwoDigits(number)
+			{
+				if(number<10)
+				{
+					number="0"+number;
+				}
+				return number;
+			}
+		</script>
+		
+	</head>
+	<body onload="getTime();">
+		
+		<h1 id="clock">10:11:21 AM</h1>
+		
+	</body>
+</html>
